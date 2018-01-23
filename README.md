@@ -1,7 +1,14 @@
 # memory-inspector
 
+<!-- [START badges] -->
+<!-- [END badges] -->
+
+<img src="images/logo.png" height="200" align="right">
+
 > Memory Inspector watchs resident memory size (res) of Web Application.
 Currently it runs over Puppeteer, which is an API to control headless Chrome or Chromium over the DevTools Protocol.
+
+#### Installing
 
 ```bash
 yarn add --dev memory-inspector
