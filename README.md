@@ -13,11 +13,24 @@ yarn add --dev memory-inspector
 const memoryInspector = require('memory-inspector')
 
 const config = {
-  url: 'http://127.0.0.1:8080', 
-  delay: 300
+  url: 'http://127.0.0.1:8080',
+  delay: 300,
+  maxMemoryLimit: 20 * 1048576, // 20MB
+  maxMemoryPercentThreshold: 20,
 }
 
 memoryInspector(config).then((info) => console.log(info))
+
+/*
+{ usedJSHeapSize: 10000000,
+  totalJSHeapSize: 11900000,
+  jsHeapSizeLimit: 2190000000,
+  memoryUsagePercent: 438000000,
+  timestamp: '2018-01-23T03:05:04.497Z',
+  exceededMemoryMaximum: -10971520,
+  exceededMemoryUsagePercent: false }
+*/
+
 ```
 
 ## Config
