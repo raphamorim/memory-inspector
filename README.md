@@ -63,6 +63,14 @@ memoryInspector(config).then((info) => console.log(info))
 
 `<string|array<string>>` When to consider navigation succeeded. Given an array of event strings, navigation is considered to be successful after all events have been fired.
 
+## Roadmap
+
+- [ ] Iterate report operations by configuration
+- [ ] Prediction report
+- [ ] Integrate with Jest
+- [ ] Write decent tests
+- [ ] Allows to specify executable based on Webkit Binaries
+
 ## About
 
 A Thanks to [Puppeteer](https://github.com/GoogleChrome/puppeteer).
