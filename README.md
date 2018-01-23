@@ -5,7 +5,7 @@
 
 <img src="images/logo.png" height="200" align="right">
 
-> Memory Inspector watchs resident memory size (res) of Web Application.
+> Memory Inspector watchs memory usage/behavior of an Web Application.
 Currently it runs over Puppeteer, which is an API to control headless Chrome or Chromium over the DevTools Protocol.
 
 #### Installing

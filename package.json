@@ -1,8 +1,17 @@
 {
   "name": "memory-inspector",
-  "version": "0.0.1",
-  "description": "Memory Inspector for Web Apps",
+  "version": "0.0.2",
   "main": "index.js",
+  "files": [
+    "LICENSE.md",
+    "README.md",
+    "index.js",
+    "src"
+  ],
+  "engines": {
+    "node" : ">=7.6.0 <9"
+  },
+  "description": "Memory Inspector for Web Apps",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
