@@ -1,0 +1,2 @@
+- wait for React didComponentRender event
+- wait for DOMContentLoaded

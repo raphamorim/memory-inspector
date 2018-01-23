@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/raphamorim/memory-inspector/issues"
   },
-  "homepage": "https://github.com/raphamorim/memory-inspector#readme"
+  "homepage": "https://github.com/raphamorim/memory-inspector#readme",
+  "dependencies": {
+    "puppeteer": "^1.0.0"
+  }
 }
