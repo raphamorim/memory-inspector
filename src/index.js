@@ -1,4 +1,4 @@
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer')
 
 module.exports = async (config) => {
   const {
@@ -6,16 +6,26 @@ module.exports = async (config) => {
     url,
     maxMemoryLimit,
     maxMemoryPercentThreshold,
-  } = config || {};
+    waitUntil,
+  } = config || {}
 
   const browser = await puppeteer.launch({
     slowMo: delay,
     options: {
       args: ['--enable-precise-memory-info']
     }
+  })
+  const page = await browser.newPage()
+
+  page.once('requestfailed', () => {
+    console.log(JSON.parse('{"error": "requestfailed"}'))
+    process.exit(1)
+  })
+
+  await page.goto(url, {
+    timeout: 10000,
+    waitUntil: waitUntil || ['domcontentloaded'],
   });
-  const page = await browser.newPage();
-  await page.goto(url);
 
   await page.evaluate(`window.maxMemoryPercentThreshold = ${maxMemoryPercentThreshold}`)
   await page.evaluate(`window.maxMemoryLimit = ${maxMemoryLimit}`)
@@ -38,6 +48,6 @@ module.exports = async (config) => {
     }
   });
 
-  await browser.close();
-  return memory;
+  await browser.close()
+  return memory
 };
