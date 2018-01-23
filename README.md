@@ -5,7 +5,7 @@
 
 <img src="images/logo.png" height="200" align="right">
 
-> Memory Inspector watchs memory usage/behavior of an Web Application.
+> Memory Inspector watches memory usage/behavior of an Web Application.
 Currently it runs over Puppeteer, which is an API to control headless Chrome or Chromium over the DevTools Protocol.
 
 #### Installing
@@ -67,4 +67,4 @@ memoryInspector(config).then((info) => console.log(info))
 
 A Thanks to [Puppeteer](https://github.com/GoogleChrome/puppeteer).
 
-Maded by [Raphael Amorim](https://github.com/raphamorim), Licensed by [MIT](License)
+Made by [Raphael Amorim](https://github.com/raphamorim), Licensed by [MIT](License)
