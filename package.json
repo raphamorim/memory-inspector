@@ -9,11 +9,11 @@
     "src"
   ],
   "engines": {
-    "node" : ">=7.6.0 <9"
+    "node": ">=7.6.0 <9"
   },
   "description": "Memory Inspector for Web Apps",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --no-cache --ci --runInBand"
   },
   "repository": {
     "type": "git",
@@ -31,5 +31,14 @@
   "homepage": "https://github.com/raphamorim/memory-inspector#readme",
   "dependencies": {
     "puppeteer": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-jest": "20.1.0-delta.1",
+    "babel-preset-env": "^1.6.1",
+    "jest": "20.1.0-delta.1"
+  },
+  "jest": {
+    "verbose": true,
+    "resetModules": true
   }
 }
