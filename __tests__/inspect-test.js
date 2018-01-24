@@ -1,6 +1,8 @@
 import MemoryInspector from '../index'
 import { startServer, finishServer } from './helper'
 
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000000;
+
 describe('Inspect operations', () => {
   it('should inspect lighter', (done) => {
     const port = 3002
