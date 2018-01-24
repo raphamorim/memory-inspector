@@ -7,6 +7,7 @@ module.exports = async (config) => {
     maxMemoryLimit,
     maxMemoryPercentThreshold,
     waitUntil,
+    formatted,
   } = config || {}
 
   const browser = await puppeteer.launch({
@@ -34,14 +35,32 @@ module.exports = async (config) => {
   await page.evaluate(`window.maxMemoryPercentThreshold = ${maxMemoryPercentThreshold}`)
   await page.evaluate(`window.maxMemoryLimit = ${maxMemoryLimit}`)
 
+  if (formatted === false) {
+    await page.evaluate(`window.formatted = false`)
+  } else {
+    await page.evaluate(`window.formatted = true`)
+  }
+
   const memory = await page.evaluate(() => {
     const { usedJSHeapSize, totalJSHeapSize, jsHeapSizeLimit } = window.performance.memory
     const memoryUsagePercent = (window.maxMemoryPercentThreshold / 100) * jsHeapSizeLimit
 
+    function bytesToSize(bytes) {
+      if (window.formatted === false) {
+        return bytes
+      }
+
+      const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB']
+      if (bytes === 0) return '0 Byte'
+      const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)), 10)
+      if (i === 0) return `${bytes} ${sizes[i]})`
+      return `${(bytes / (1024 ** i)).toFixed(1)} ${sizes[i]}`
+    }
+
     return {
-      usedJSHeapSize: usedJSHeapSize,
-      totalJSHeapSize: totalJSHeapSize,
-      jsHeapSizeLimit: jsHeapSizeLimit,
+      usedJSHeapSize: bytesToSize(usedJSHeapSize),
+      totalJSHeapSize: bytesToSize(totalJSHeapSize),
+      jsHeapSizeLimit: bytesToSize(jsHeapSizeLimit),
       memoryUsagePercent: memoryUsagePercent,
 
       // Check if we've exceeded absolute memory limit

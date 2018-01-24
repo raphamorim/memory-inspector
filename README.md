@@ -23,6 +23,7 @@ const memoryInspector = require('memory-inspector')
 const config = {
   url: 'http://127.0.0.1:8080',
   delay: 300,
+  formatted: false, // default is true
   maxMemoryLimit: 20 * 1048576, // should not pass of 20MB
   maxMemoryPercentThreshold: 90, // should not pass 90% of total memory
   waitUntil: ['domContentLoaded'], // wait for browser events
@@ -47,6 +48,10 @@ memoryInspector(config).then((info) => console.log(info))
 #### url
 
 `<string>` URL to navigate page to. The url should include scheme, e.g. `https://`
+
+#### formatted
+
+`<boolean>` Define if will format bytes into Sizes, like: `2190000000` to `2.0 GB`. 
 
 #### delay
 
