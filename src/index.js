@@ -12,7 +12,11 @@ module.exports = async (config) => {
   const browser = await puppeteer.launch({
     slowMo: delay,
     options: {
-      args: ['--enable-precise-memory-info']
+      args: [
+        '--enable-precise-memory-info',
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+      ]
     }
   })
   const page = await browser.newPage()
