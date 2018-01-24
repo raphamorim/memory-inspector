@@ -1,6 +1,7 @@
 # memory-inspector
 
 <!-- [START badges] -->
+[![CircleCI](https://circleci.com/gh/raphamorim/memory-inspector/tree/master.svg?style=svg)](https://circleci.com/gh/raphamorim/memory-inspector/tree/master)
 <!-- [END badges] -->
 
 <img src="images/logo.png" height="200" align="right">
