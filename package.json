@@ -13,7 +13,7 @@
   },
   "description": "Memory Inspector for Web Apps",
   "scripts": {
-    "test": "jest --no-cache --ci --runInBand"
+    "test": "jest --no-cache --bail --ci --runInBand"
   },
   "repository": {
     "type": "git",
@@ -38,6 +38,7 @@
     "jest": "20.1.0-delta.1"
   },
   "jest": {
+    "testRegex": ".*\\-test\\.js$",
     "verbose": true,
     "resetModules": true
   }

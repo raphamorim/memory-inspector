@@ -39,7 +39,6 @@ module.exports = async (config) => {
       totalJSHeapSize: totalJSHeapSize,
       jsHeapSizeLimit: jsHeapSizeLimit,
       memoryUsagePercent: memoryUsagePercent,
-      timestamp: new Date().toISOString(),
 
       // Check if we've exceeded absolute memory limit
       exceededMemoryMaximum: usedJSHeapSize - window.maxMemoryLimit,
