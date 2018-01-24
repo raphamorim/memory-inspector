@@ -51,7 +51,7 @@ memoryInspector(config).then((info) => console.log(info))
 
 #### formatted
 
-`<boolean>` Define if will format bytes into Sizes, like: `2190000000` to `2.0 GB`. 
+`<boolean>` Define if will format bytes into sizes, like: `2190000000` to `2.19 GB`. By default it's `true`.
 
 #### delay
 

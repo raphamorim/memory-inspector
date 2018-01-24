@@ -44,10 +44,10 @@ describe('Inspect operations', () => {
       expect(info).toEqual({
         "exceededMemoryMaximum": -10971520,
         "exceededMemoryUsagePercent": false,
-        "jsHeapSizeLimit": "2.0 GB",
+        "jsHeapSizeLimit": "2.19 GB",
         "memoryUsagePercent": 1971000000,
-        "totalJSHeapSize": "9.5 MB",
-        "usedJSHeapSize": "9.5 MB",
+        "totalJSHeapSize": "10 MB",
+        "usedJSHeapSize": "10 MB",
       })
 
       app.close()
@@ -69,10 +69,10 @@ describe('Inspect operations', () => {
       expect(info).toEqual({
         "exceededMemoryMaximum": 1528951424,
         "exceededMemoryUsagePercent": true,
-        "jsHeapSizeLimit": "2.0 GB",
+        "jsHeapSizeLimit": "2.19 GB",
         "memoryUsagePercent": 21900000,
-        "totalJSHeapSize": "1.4 GB",
-        "usedJSHeapSize": "1.4 GB"
+        "totalJSHeapSize": "1.53 GB",
+        "usedJSHeapSize": "1.53 GB"
       })
 
       app.close()

@@ -50,11 +50,15 @@ module.exports = async (config) => {
         return bytes
       }
 
-      const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB']
-      if (bytes === 0) return '0 Byte'
-      const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)), 10)
-      if (i === 0) return `${bytes} ${sizes[i]})`
-      return `${(bytes / (1024 ** i)).toFixed(1)} ${sizes[i]}`
+      if (bytes == 0) {
+        return '0 Bytes'
+      }
+
+      var k = 1000,
+        decimalpoint = 2,
+        sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
+        i = Math.floor(Math.log(bytes) / Math.log(k))
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(decimalpoint)) + ' ' + sizes[i]
     }
 
     return {
