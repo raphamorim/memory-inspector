@@ -55,7 +55,7 @@ module.exports = async (config) => {
       }
 
       var k = 1000,
-        decimalpoint = 2,
+        decimalpoint = 3,
         sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
         i = Math.floor(Math.log(bytes) / Math.log(k))
       return parseFloat((bytes / Math.pow(k, i)).toFixed(decimalpoint)) + ' ' + sizes[i]
