@@ -17,6 +17,32 @@ yarn add --dev memory-inspector
 
 ## Usage
 
+#### Example 1
+
+```js
+const memoryInspector = require('memory-inspector')
+
+const config = {
+  url: 'http://localhost:3000',
+  maxMemoryLimit: 20 * 1048576, // should not pass of 20MB
+  maxMemoryPercentThreshold: 90, // should not pass 90% of total memory
+}
+
+memoryInspector(config).then((info) => console.log(info))
+
+/*
+{ "exceededMemoryMaximum": 1528951424,
+  "exceededMemoryUsagePercent": true,
+  "jsHeapSizeLimit": "2.19 GB",
+  "memoryUsagePercent": 21900000,
+  "totalJSHeapSize": "1.53 GB",
+  "usedJSHeapSize": "1.53 GB" }
+*/
+
+```
+
+#### Example 2
+
 ```js
 const memoryInspector = require('memory-inspector')
 
@@ -36,7 +62,6 @@ memoryInspector(config).then((info) => console.log(info))
   totalJSHeapSize: 11900000,
   jsHeapSizeLimit: 2190000000,
   memoryUsagePercent: 438000000,
-  timestamp: '2018-01-23T03:05:04.497Z',
   exceededMemoryMaximum: -10971520,
   exceededMemoryUsagePercent: false }
 */
