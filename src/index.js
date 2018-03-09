@@ -1,14 +1,23 @@
 const puppeteer = require('puppeteer')
+const createServer = require('./createServer')
+const portNumber = 8585
 
 module.exports = async (config) => {
   const {
+    evaluate,
     delay,
-    url,
     maxMemoryLimit,
     maxMemoryPercentThreshold,
     waitUntil,
     formatted,
   } = config || {}
+
+  let { url, server } = config
+
+  if (evaluate) {
+    server = createServer(portNumber)
+    url = 'http://localhost:' + portNumber
+  }
 
   const browser = await puppeteer.launch({
     slowMo: delay,
@@ -40,6 +49,8 @@ module.exports = async (config) => {
   } else {
     await page.evaluate(`window.formatted = true`)
   }
+
+  await page.evaluateHandle(evaluate())
 
   const memory = await page.evaluate(() => {
     const { usedJSHeapSize, totalJSHeapSize, jsHeapSizeLimit } = window.performance.memory
@@ -75,5 +86,6 @@ module.exports = async (config) => {
   });
 
   await browser.close()
+  await server.close()
   return memory
 };

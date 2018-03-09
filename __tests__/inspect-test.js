@@ -1,5 +1,5 @@
 import MemoryInspector from '../index'
-import { startServer, finishServer } from './helper'
+import { startServer } from './helper'
 
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 50000;
 

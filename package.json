@@ -1,6 +1,6 @@
 {
   "name": "memory-inspector",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "main": "index.js",
   "files": [
     "LICENSE.md",
@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/raphamorim/memory-inspector#readme",
   "dependencies": {
-    "puppeteer": "^1.0.0"
+    "puppeteer": "^1.1.1"
   },
   "devDependencies": {
     "babel-jest": "20.1.0-delta.1",
